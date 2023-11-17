@@ -1,4 +1,4 @@
-/* html{
+html{
     background-image: url(log2.jpg);
 }
 h1{
@@ -88,4 +88,4 @@ from {
     display: flex;
     justify-content: center;
     align-items: center;
-} */
+}
