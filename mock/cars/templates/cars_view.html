@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load static %}
+{% load django_bootstrap5 %}
+{% block title %}
+  <title>CARS</title>
+{% endblock title %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/cars.css' %}">
+{% endblock %}
+{%bootstrap_css%}
+
+
+{% block content%}
+    <div class="features">
+        <h1> Cars</h1>
+        <input class="search" type="search" placeholder="Search">
+    </div>
+    <div class="features">
+        <div class="container">
+
+          {% if cars_cars %}
+            {% for car in cars_cars %}
+            {% csrf_token %}
+              <div class="car">
+                <div class="car-header">
+                  {% comment %}to filter created we can use | date:'d-m-Y' or | timesince or | timeuntil{% endcomment %}
+                  <small class="text">Создано: {{ cars.created|date:'d-m-Y' }}</small>
+                  <p class="car-cost">$ {{ cars.price }}</p>
+                </div>
+                <hr />
+                <div class="dc">
+                  <div class="dcc">
+                    <img src="{{ cars.image.url }}" alt="{{ cars.title }}" />
+                  </div>
+                  <a href="{% url "car_details" cars.id %}">
+                  <div class="car-footer">
+                    <h3>{{ cars.title }}</h3>
+                    <p>{{ cars.description }}</p>
+                  </div>
+                </a>
+                  <div class="car-footer">
+                    <hr />
+                    {% comment %} {% if car.author.id == request.user.id %}  {% endcomment %}
+                    <a href="{% url 'car_details' car.id %}" 
+                    class="view"
+                    >
+                      Просмотр
+                    </a>
+                    <a href="{% url 'delete_car' car.id %}" 
+                    class="view"
+                    >
+                      Удалить
+                    </a>
+                    {% comment %} {% endif %} {% endcomment %}
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          {% else %}
+            <p>Машинов не найдено</p>
+          {% endif %}
+          
+        </div>
+      </div>
+
+    
+{% endblock %}
+
+{% block scripts %}
+<scripts src="{% static 'js/main.js' %}">
+</scripts>
+{% endblock scripts %}

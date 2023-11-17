@@ -1,0 +1,41 @@
+{% comment %} {% extends 'base.html' %} {% endcomment %}
+{% load static %}
+{% load django_bootstrap5 %}
+
+{% block title %}
+  {% comment %} <title>Login</title> {% endcomment %}
+{% endblock %}
+<link rel="stylesheet" href="{% static 'css/log.css' %}">
+
+{% bootstrap_css %}
+
+{% block auth_content %}
+  <div class="cont text-center">
+    <h1>Войти</h1>
+    <div class="text-center center">
+    {% include "form_snippets.html" with form=form btn_text='Login' %}
+    </div>
+    {% comment %} <div class="text-center">
+      <a class="btn btn-success" href="{% provider_login_url 'github' %}">
+          GitHub
+      </a>
+      <a class="btn btn-danger" href="{% provider_login_url 'google' %}">
+          
+          Google
+      </a>
+    </div> {% endcomment %}
+    
+    <div class="mb-5">
+        <small class="">
+            Не зарегистрованы?  
+            <a class="btn btn-warning" href="{% url "registration" %}">
+                Создать аккаунт
+            </a>
+        </small>
+    </div>
+  </div>
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}

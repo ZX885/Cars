@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load django_bootstrap5 %}
+
+{% block title %}
+  {{ user.username }} profile</title>
+{% endblock %}
+{% block link %}
+  <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock link %}
+
+{% block content %}
+  <h1 class="h1">{{ user.username }} profile</h1>
+
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {% if u_form.errors %}
+      {% bootstrap_form_errors u_form %}
+    {% endif %}
+    {% if p_form.errors %}
+      {% bootstrap_form_errors p_form %}
+    {% endif %}
+    <div class="features gg">
+      {% bootstrap_form u_form %}
+      {% bootstrap_form p_form %}
+    </div>
+    <div class="foot">
+      <button class="btn btn-success" type="submit">Update</button>
+    </div>
+  </form>
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% comment %} {% extends 'base.html' %} {% endcomment %}
+{% load static %}
+{% load django_bootstrap5 %}
+
+{% block title %}
+  <title>Logged out</title>
+{% endblock %}
+{% block link %}
+  <link rel="stylesheet" href="{% static 'css/log.css' %}">
+{% endblock link %}
+
+ {%bootstrap_css%}
+
+{% block auth_content %}
+  <div class="cont">
+    <h1>Logged out successfully</h1>
+
+    <hr>
+    <div class="mb-5">
+        <small class="text-muted">
+             <p>  Login again</p>
+            <a class="btn btn-success" href="{% url "login" %}">
+                Login
+            </a>
+            <a class="btn btn-success" href="{% url "home_page" %}">Home</a>
+        </small>
+    </div>
+  </div>
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}

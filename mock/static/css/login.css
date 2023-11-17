@@ -1,0 +1,55 @@
+
+#h1{
+    display: flex;
+    justify-content: center;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    max-width: 400px;
+}
+.forma{
+    width: 500px;
+    padding: 40px;
+    border: 1px solid green;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+.but{
+    width: 190px;
+    margin-top: 10px;
+}
+
+.text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 62px;
+    max-width: 1145px;
+    margin: 25px;
+    gap: 30px;
+}
+
+.img{
+    width: 15px;
+
+}
+#tit{
+    color: aliceblue;
+}
+.form{
+    color: aliceblue;
+}
+
+.text-center{
+    display: flex;
+}

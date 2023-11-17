@@ -1,0 +1,38 @@
+{% comment %} {% extends 'base.html' %} {% endcomment %}
+{% load static %}
+
+{% load django_bootstrap5 %}
+{% block title %}
+  {% comment %} <title>Registration</title> {% endcomment %}
+{% endblock title %}
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/log2.css' %}">
+{% endblock link %}
+{% block style %}
+{% comment %} <style>
+  .cont{
+    padding: 10px;
+  }
+</style> {% endcomment %}
+{% endblock style %}
+{% bootstrap_css %}
+{% block auth_content %}
+  <div style="padding: 20px;margin: 10px;margin-top: 20px;" 
+  class="cont">
+    <h1>Регистрация</h1>
+
+    {% include "form_snippets.html" with form=form btn_text='Register' %}
+
+    <hr>
+    <div class="mb-5">
+        <small class="text">
+            Уже есть аккаунт? 
+            <a class="btn btn-warning" href="{% url "login" %}">Войти</a> 
+        </small>
+    </div>
+  </div>
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}

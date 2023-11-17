@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load django_bootstrap5 %}
+
+{% block title %}
+  <title>Add a Car</title>
+{% endblock %}
+{% block css %}
+{% comment %} <link rel="stylesheet" href="{% static 'css/main.css' %}"> {% endcomment %}
+{% endblock css %}
+
+
+
+{% block style %}
+{% endblock %}
+
+{% block link %}
+{% endblock %}
+
+{% block content %}
+    <h1>Add new car</h1>
+    <div class="features">
+        <div class="container">
+            {% include "form_snippets.html" with form=form %}
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block script %}
+{% endblock %}

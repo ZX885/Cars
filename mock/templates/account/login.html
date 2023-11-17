@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load django_bootstrap5 %}
+{% load account socialaccount %}
+
+
+{% block link %}
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+{% endblock %}
+{% block title %}
+Login
+{% endblock %}
+
+
+{% block auth_content %}
+<h1 id="h1" >Login</h1>
+  <div class="container">
+    <form action="{% url 'login' %}"  method="POST" class="form">
+      {% csrf_token %}
+      <div class="form-control">
+        <div class="form">
+          <label for="username"><img class="img" src="{% static "images/user-solid.svg" %}" alt="">Username</label>
+          <input id="username" type="text" placeholder="Username" />
+        </div><br>
+        <div class="form">
+          <label for="password"><img class="img" src="{% static "images/lock-solid.svg" %}" alt="">Password</label>
+          <input id="password" type="password" placeholder="Password" />
+        </div>
+        <button type="submit" class="but btn btn-success">Submit</button>
+      </div>
+
+    </form>
+
+    <hr>
+    
+  </div>
+  <div class="text-center">
+    <a class="btn btn-success" href="{% provider_login_url 'github' %}">
+        
+        GitHub
+    </a>
+    <a class="btn btn-danger" href="{% provider_login_url 'google' %}">
+        
+        Google
+    </a>
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+.car{
+    background-color: rgba(0, 0, 0, 0.288);
+    border-radius: 20px;
+}
+.container{
+    gap: 10px;
+}
+.text{
+    color: aqua;
+}
+.dcc img{
+    max-width: 200px;
+}
+.search{
+    width: 200px;
+    float: right;
+    position: relative;
+    bottom: 40px;
+    border-radius: 50px;
+    background-color: #00efff75;
+    color: aliceblue;
+}

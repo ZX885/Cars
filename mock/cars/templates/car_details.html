@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load django_bootstrap5 %}
+
+{% block title %}
+  <title>Car view</title>
+{% endblock %}
+
+{% block style %}
+  <style>
+    #img {
+      padding-top: 10px;
+      max-width: 350px;
+    }
+    .contain{
+      background-color: #4d4d4dcc;
+      padding: 10px ;
+      margin: 30px auto;
+      margin-left: 30px;
+      border-radius: 10px;
+      max-width: 500px;
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+  {% comment %} <p id="img">{{ object.im }}</p> {% endcomment %}
+  <div class="features">  
+    <img src="{{cars.image}}" alt="">
+    <div class="contain">
+      <h1>{{ cars.title }}</h1>
+      <p>{{ cars.description }}</p>
+    </div>
+  </div>
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}

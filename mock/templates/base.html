@@ -1,0 +1,56 @@
+{% load static %}
+{% load django_bootstrap5 %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block title %}{% endblock  %}
+    {% bootstrap_css %}
+    {% block css %}
+      <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    {% endblock css %}
+</head>
+<body>
+
+    <aside>
+      <img class="img-2" src="{% static 'img/bmw_def.jpg' %}" alt="">
+      <span class="logo"><a href="{% url "profile" %}">Профиль</a></span>
+      <div>
+        {% include 'navbar.html' %}
+      </div>
+  
+    </aside>
+    <main id="logged-in-menu">
+      {% csrf_token %}
+      <div id="messages">
+        {% bootstrap_messages %}
+      </div>
+      {% block content %}
+
+          {% include 'cars.html' %}
+
+      {% endblock content %}
+
+    </main>
+
+{% bootstrap_javascript %}
+{% block script %}
+{% comment %} <script>
+  setTimeout(() => {
+    const messages = document.querySelectorAll('#messages')
+    messages.forEach((msg) => {
+      msg.remove()
+    })
+  }, 5000)
+  
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+  })
+</script> {% endcomment %}
+{% endblock script %}
+
+</body>
+</html>

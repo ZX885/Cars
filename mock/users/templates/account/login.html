@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+{% comment %} {% load django_bootstrap5 %} {% endcomment %}
+{% load account socialaccount %}
+
+
+{% block link %}
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock link %}
+{% block title %}
+  <title id="tit">Login</title>
+{% endblock %}
+{% block style %}
+  {% comment %} <style>
+    * {
+        transition: 0.2s;
+    }
+    form, .form-control {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+    input {
+        padding: 10px 20px;
+        border: none;
+        background-color: lightgray;
+        border-radius: 5px;
+        outline: none;
+    }
+    input:focus {
+        padding: 10px 25px;
+        background-color: green;
+        color: snow;
+    }
+  </style>  {% endcomment %}
+{% endblock %}
+
+{% block auth_content %}
+<h1 id="h1" style="color: white;">Login</h1>
+  <div class="container">
+    <form action="{% url 'login' %}"  method="POST" class="form">
+      {% csrf_token %}
+      <div class="forma">
+        <div class="form">
+          <label for="username"><img class="img" src="{% static "images/user-solid.svg" %}" alt="">Username</label>
+          <input id="username" type="text" placeholder="Username" />
+        </div><br>
+        <div class="form">
+          <label for="password"><img class="img" src="{% static "images/lock-solid.svg" %}" alt="">Password</label>
+          <input id="password" type="password" placeholder="Password" />
+        </div>
+        <button type="submit" class="but btn btn-success">Submit</button>
+      </div>
+
+    </form>
+
+    <hr>
+    
+  </div>
+  <div class="text">
+    <a class="btn btn-success" href="{% provider_login_url 'github' %}">
+        <i class="fab fa-github"></i>
+        GitHub
+    </a>
+    <a class="btn btn-danger" href="{% provider_login_url 'google' %}">
+        <i class="fab fa-google"></i>
+        Google
+    </a>
+</div>
+{% endblock %}
