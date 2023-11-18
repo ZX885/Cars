@@ -7,7 +7,7 @@ CAR_IDS = "cars_ids"
 
 
 class Session:
-    valid_keys = [ VIEWED_CARS]
+    valid_keys = [WISH_LIST,VIEWED_CARS]
 
     def __init__(self, request) -> None:
         self.session = request.session
@@ -39,7 +39,7 @@ class Session:
         return True
 
 
-def send_to_wishlist(request, item_id: int, obj_name: str) -> None:
+def send_to_buy(request, item_id: int, obj_name: str) -> None:
     """Sends item to wishlist
 
     Args:
@@ -92,17 +92,3 @@ def delete_item_from_wishlist(request, item_id: int, item_type: str) -> None:
             wish_list[CAR_IDS] = cars_ids
 
     session.set(WISH_LIST, wish_list)
-
-# def testpermission(user, book_id:int=None) -> bool: 
-#     if user.is_authenticated:
-        
-#         if book_id:
-            
-#             if book := Books.object.filter(id=book_id).first():
-#                 if user == book.author:
-#                     return True
-#             return False
-#         else:
-#             return True 
-#     else: 
-#         return False 

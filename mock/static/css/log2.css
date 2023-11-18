@@ -12,7 +12,7 @@ body{
 .cont{
     justify-content: center;
     align-items: center;
-    max-width: 500px;
-    border: 1px solid black;
+    width: 500px;
+    border: 1px solid rgba(25, 182, 25, 0.596);
     background-color: rgba(100, 100, 100, 0.342);
 }

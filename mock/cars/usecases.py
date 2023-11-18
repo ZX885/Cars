@@ -24,5 +24,5 @@ def get_saved_cars(request) -> list[Cars]:
     return cars
 
 
-def delete_book_from_wl(request, car_ids: int):
+def delete_car_from_wl(request, car_ids: int):
     delete_item_from_wishlist(request, car_ids, "car")

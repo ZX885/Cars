@@ -6,7 +6,7 @@
   <title>Add a Car</title>
 {% endblock %}
 {% block css %}
-{% comment %} <link rel="stylesheet" href="{% static 'css/main.css' %}"> {% endcomment %}
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
 {% endblock css %}
 
 
@@ -18,8 +18,8 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Add new car</h1>
-    <div class="features">
+<h1 class="text-center">Add new car</h1>
+<div class="features">
         <div class="container">
             {% include "form_snippets.html" with form=form %}
         </div>

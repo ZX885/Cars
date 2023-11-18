@@ -7,34 +7,25 @@
 
 {% block css %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
-    {% comment %} <link rel="stylesheet" type="text/css" href="{% static 'css/log2.css' %}"> {% endcomment %}
 {% endblock %}
 
 
 {% block content%}
 {% csrf_token %}
 
-    <div class="features">
-        <h1 style="color: red;">Cars</h1>
+    <h1 class="text-center" style="color: red;">Cars</h1>
+    <div class=" features">
         <div class="container">
-            <div class="for-image"><img id="img" src="{% static 'img/bmw_def.jpg' %}" alt=""></div>
-            <div><p>В отличие от нового купе BMW 4-Series, «эм-пятая» сохранила достаточно консервативный стиль. 
-                Во всяком случае, до нее пока не добрались огромные ноздри. Обновление внешности 
-                затронуло в основном оптику и бамперы. В дополнение к этому производитель 
-                добавил пять новых цветов кузова, включая серый Brands Hatch Grey и красный Motegi Red Metallic.
-                Появились 20-дюймовые диски, подсмотренные у M8. Двигатель развивает 600 л.с. в обычной версии и 625л.с. — в M5 Competition. 
-                В январе 2021 года BMW представила спецверсию спортивного седана M5 под кодом CS. Это самая мощная и быстрая серийная
-                «четырехдверка» в истории бренда. Двигатель прибавил в мощности 10 л.с., перенастроено шасси, а меры по
-                уменьшению веса позволили сэкономить 70 кг относительно M5 Competition</p></div>
-            {% comment %}  {% endcomment %}{% comment %}  {% endcomment %}
-            <div><p>Суперкар, выпускавшийся компанией Lamborghini с 2011 по 2021 год.
-                Aventador пришёл на смену Lamborghini Murciélago и оснащался 6,5-литровым V-образным
-                12-цилиндровым двигателем мощностью от 700 до 780 л. с. в зависимости от модификации.
-                Дизайн был разработан Фелиппо Перини. Первоначально компания планировала выпустить лишь 4 
-                тысячи экземпляров этой модели, но её итоговый тираж превысил это число более чем вдвое
-                — 10 тысяч машин, что сделало Авентадор самой успешной моделью в истории марки</p></div>
-            <div class="for-image"><img id="img" src="{% static 'img/lambo.jpg' %}" alt=""></div>
-        </div>
+            <div class="for-image"><img id="img" src="{% static 'img/Chevrolet-Cobalt.jpg' %}" alt=""></div>
+            <div>
+                <h3 class="h3">Chevrolet COBALT 2023</h3>
+                <h5>Кобальт 2023 года 4 позиция</h5>
+                <p>Наш филиал</p>
+                {% if user.username != 'zarux' %}
+                <a href="{% url "purchase" %}">Купить сейчас</a>
+                {% endif %}
+            </div>
+ы        </div>
     </div>
 
 

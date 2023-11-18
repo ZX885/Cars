@@ -15,8 +15,13 @@
 <body>
 
     <aside>
-      <img class="img-2" src="{% static 'img/bmw_def.jpg' %}" alt="">
-      <span class="logo"><a href="{% url "profile" %}">Профиль</a></span>
+      <div class="d">
+        <img class="img-2" src="{% static 'img/bmw_def.jpg' %}" alt="">
+        <span class="logo"><a href="{% url "profile" %}">Профиль</a></span>
+        {% comment %} <input class="search" type="search" placeholder="Search"> {% endcomment %}
+      </div>
+      <div class="dd"><input class=" search" type="search" placeholder="🔍 Search">
+      </div>
       <div>
         {% include 'navbar.html' %}
       </div>
@@ -37,7 +42,7 @@
 
 {% bootstrap_javascript %}
 {% block script %}
-{% comment %} <script>
+<script>
   setTimeout(() => {
     const messages = document.querySelectorAll('#messages')
     messages.forEach((msg) => {
@@ -49,7 +54,7 @@
   var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
     return new bootstrap.Tooltip(tooltipTriggerEl)
   })
-</script> {% endcomment %}
+</script>
 {% endblock script %}
 
 </body>

@@ -16,13 +16,13 @@ class HomeView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        # cars_ids = []
-        # if wish_list := Session(self.request).get(WISH_LIST, []):
-        #     cars_ids = wish_list.get("car_ids", [])
+        cars_ids = []
+        if wish_list := Session(self.request).get(WISH_LIST, []):
+            cars_ids = wish_list.get("car_ids", [])
 
-        # context.update({
-        #     "cars_ids": cars_ids
-        # })
+        context.update({
+            "cars_ids": cars_ids
+        })
         return context
 class AboutView(TemplateView):
     template_name = 'about.html'

@@ -15,7 +15,6 @@
 {% block content%}
     <div class="features">
         <h1> Cars</h1>
-        <input class="search" type="search" placeholder="Search">
     </div>
     <div class="features">
         <div class="container">
@@ -42,18 +41,23 @@
                 </a>
                   <div class="car-footer">
                     <hr />
-                    {% comment %} {% if car.author.id == request.user.id %}  {% endcomment %}
-                    <a href="{% url 'car_details' car.id %}" 
-                    class="view"
-                    >
-                      Просмотр
-                    </a>
+                    {% if user.username == 'zarux' %} 
                     <a href="{% url 'delete_car' car.id %}" 
                     class="view"
                     >
                       Удалить
                     </a>
-                    {% comment %} {% endif %} {% endcomment %}
+                    {% endif %}
+                    <a href="{% url 'car_details' car.id %}" 
+                    class="view"
+                    >
+                      Просмотр
+                    </a>
+                    <a href="{% url 'add_to_wishlist' book.id %}" 
+                    class="btn btn-sm col-sm-6 btn-success"
+                    >
+                      Add to wishlist
+                    </a>
                   </div>
                 </div>
               </div>

@@ -7,6 +7,8 @@ from django.conf import settings
 
 from .forms import CarsForm
 from .models import Cars
+from .usecases import *
+from mock.usecases import *
 
 class AddCarView(CreateView):
     modal = Cars
@@ -20,9 +22,9 @@ class AddCarView(CreateView):
             car = form.save(commit=False)
             car.author = self.request.user
             car.save()
-            email   = form.cleaned_data['email']
-            title   = form.cleaned_data['title']
-            message = form.cleaned_data['message']
+            # email   = form.cleaned_data['email']
+            # title   = form.cleaned_data['title']
+            # message = form.cleaned_data['message']
             
         return redirect('cars_view')
 
@@ -62,18 +64,18 @@ class CarUpdateView(LoginRequiredMixin,UserPassesTestMixin,  UpdateView):
 def delete_car(request, car_id: int):
     car = Cars.objects.get(id=car_id)
     car.delete()
-    messages.success(request, 'Car deleted successfully!')
+    messages.success(request, 'Машина удалено успешно!')
     return redirect('cars_view')
 
 @login_required
-def add_to_wishlist(request, car_id: int):
+def add_to_buy(request, car_id: int):
     car = Cars.objects.get(id=car_id)
-    added = send_to_wishlist(request, car_id, 'car')
+    added = send_to_buy(request, car_id, 'car')
 
     if not added:
         messages.success(
-            request, f"Successfully added a car {car.title.upper()} into wishlist!")
+            request, f"Машина {car.title.upper()} успешно добавлено в корзинку!")
     else:
         messages.warning(
-            request, f"The car {car.title.upper()} already exists in your wishlist!")
+            request, f"Машина {car.title.upper()} уже существует в вашем корзинке!")
     return redirect('cars_view')
