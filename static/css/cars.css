@@ -2,12 +2,20 @@
     background-color: rgba(0, 0, 0, 0.288);
     border-radius: 20px;
 }
-.container{
+.contain{
+    display: grid;
+    grid-template-columns: repeat(2,2fr);
     gap: 10px;
+    width: auto;
+    background-color: #9e9e9eb0;
 }
 .text{
     color: aqua;
 }
 .dcc img{
     max-width: 200px;
+}
+.a{
+    position: relative;
+    left: 400px;
 }

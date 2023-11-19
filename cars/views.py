@@ -22,10 +22,6 @@ class AddCarView(CreateView):
             car = form.save(commit=False)
             car.author = self.request.user
             car.save()
-            # email   = form.cleaned_data['email']
-            # title   = form.cleaned_data['title']
-            # message = form.cleaned_data['message']
-            
         return redirect('cars_view')
 
 class CarsListView(ListView):

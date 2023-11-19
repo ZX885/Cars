@@ -6,26 +6,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    {% block title %}{% endblock  %}
+    {% block title %}
+    {% endblock %}
     {% bootstrap_css %}
     {% block css %}
-      <link rel="stylesheet" href="{% static 'css/main.css' %}">
+      <link rel="stylesheet" href="{% static 'css/main.css' %}" />
     {% endblock %}
-</head>
-<body>
+  </head>
+  <body>
+    <div class="header">
 
-    <aside>
-      <div class="d">
-        <img class="img-2" src="{% static 'img/bmw_def.jpg' %}" alt="">
-        <span class="logo"><a href="{% url "profile" %}">Профиль</a></span>
-        {% comment %} <input class="search" type="search" placeholder="Search"> {% endcomment %}
-      </div>
-      <div class="dd"><input class=" search" type="search" placeholder="🔍 Search">
+      <aside>
+        <div class="d">
+          <img class="img-2" src="{% static 'img/bmw_def.jpg' %}" alt="" />
+          <span class="logo"><a href="{% url 'profile' %}">Профиль</a></span>
+          {% comment %} <input class="search" type="search" placeholder="Search" /> {% endcomment %}
       </div>
       <div>
         {% include 'navbar.html' %}
       </div>
-  
     </aside>
     <main id="logged-in-menu">
       {% csrf_token %}
@@ -33,29 +32,46 @@
         {% bootstrap_messages %}
       </div>
       {% block content %}
-
-          {% include 'cars.html' %}
-
-      {% endblock content %}
-
+      {% include 'cars.html' %}
+      {% endblock %}
     </main>
+    </div>
 
-{% bootstrap_javascript %}
-{% block script %}
-<script>
-  setTimeout(() => {
-    const messages = document.querySelectorAll('#messages')
-    messages.forEach((msg) => {
-      msg.remove()
-    })
-  }, 5000)
-  
-  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-    return new bootstrap.Tooltip(tooltipTriggerEl)
-  })
-</script>
-{% endblock script %}
 
-</body>
+    <footer>
+      <div class="card-footer">
+        <div class="f">
+          <img class="img" src="{% static 'img/bmw_def.jpg' %}" alt="">
+          <h3>Мошины</h3>
+        </div>
+        <div class="ff">
+          <h3>Каталог</h3>
+          <p>Контакты: +998992609264</p>
+          <p><a href="https://bmw.com">bmw</a></p>
+        </div>
+        <div class="fff">
+          <h3>О нас</h3>
+          <a href="{% url "cars_view" %}">Наши продукты</a>
+          <br><a href="{% url "about" %}">О нас</a>
+        </div>
+      </div>
+    </footer>
+
+    {% bootstrap_javascript %}
+    {% block script %}
+      <script>
+        setTimeout(() => {
+          const messages = document.querySelectorAll('#messages')
+          messages.forEach((msg) => {
+            msg.remove()
+          })
+        }, 5000)
+        
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+          return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+      </script>
+    {% endblock %}
+  </body>
 </html>

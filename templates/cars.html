@@ -1,37 +1,104 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% load static %}
 
 {% block title %}
-{{title}}
-{% endblock title %}
-
-{% block css %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+  {{ title }}
 {% endblock %}
 
+{% block css %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
+{% endblock %}
 
-{% block content%}
-{% csrf_token %}
+{% block content %}
+  {% csrf_token %}
 
-    <h1 class="text-center" style="color: red;">Cars</h1>
-    <div class=" features">
-        <div class="container">
-            <div class="for-image"><img id="img" src="{% static 'img/Chevrolet-Cobalt.jpg' %}" alt=""></div>
-            <div>
-                <h3 class="h3">Chevrolet COBALT 2023</h3>
-                <h5>Кобальт 2023 года 4 позиция</h5>
-                <p>Наш филиал</p>
-                {% if user.username != 'zarux' %}
-                <a href="{% url "purchase" %}">Купить сейчас</a>
-                {% endif %}
-            </div>
-ы        </div>
+  {% comment %} <h1 class="text-center" style="color: red;">Cars</h1> {% endcomment %}
+  <div class="features">
+    <div class="container">
+      <div class="for-image">
+        <img id="img" src="{% static 'img/Chevrolet-Cobalt.jpg' %}" alt="" />
+      </div>
+      <div>
+        <h3 class="h3">Chevrolet COBALT 2023</h3>
+        <h5>Кобальт 2023 года 4 позиция</h5>
+        <p>Наш филиал</p>
+        {% if user.username != 'zarux' %}
+          <a class="aa" href="{% url 'purchase' %}">Купить сейчас</a>
+        {% endif %}
+      </div>
     </div>
-
-
+  </div>
+  <div class="logos">
+    <a href="https://bmw.com"><img src="{% static 'img/bmwlogo.webp' %}" alt="" /></a>
+    <a href="https://mercedes-benz.com"><img src="{% static 'img/Mercedes.webp' %}" alt="" /></a>
+    <a href="https://volkswagen.com"><img src="{% static 'img/Volks.webp' %}" alt="" /></a>
+    <a href="https://Chevrolet.com"><img src="{% static 'img/Chevrolet-logo.webp' %}" alt="" /></a>
+    <a href="https://Rolls-Royce.com"><img src="{% static 'img/Rolls-Royce.webp' %}" alt="" /></a>
+    <a href="https://tesla.com"><img src="{% static 'img/tesla-logo.webp' %}" alt="" /></a>
+  </div>
+  <hr />
+  <div class="di">
+    <div id="di1">
+      <h5>Иследуйте новые и популярные стили</h5>
+      <img src="{% static 'img/McLaren.jpg' %}" alt="" />
+    </div>
+    <div class="di1">
+      <div class="first">
+        <img src="{% static 'img/bmw1.jpg' %}" alt="" />
+      </div>
+      <div class="second">
+        <img src="{% static 'img/gelik.jpg' %}" alt="" />
+      </div>
+      <div class="third">
+        <img src="{% static 'img/mustang.jpg' %}" alt="" />
+      </div>
+      <div class="four">
+        <img src="{% static 'img/gtr35.jpg' %}" alt="" />
+      </div>
+    </div>
+  </div>
+  <div class="vid">
+    <video autoplay src="{% static 'img/bmw_vid.mp4' %}"></video>
+  </div>
+  <br />
+  <div class="slider">
+    <a href="{% url 'cars_view' %}">Показать все</a>
+    <div class="slide">
+      <div class="s">
+        <img src="{% static 'img/Chevrolet-Cobalt.jpg' %}" alt="" />
+        <p>
+          Cobalt 2023 года. <br />Цена : 13000,0$
+        </p>
+      </div>
+      <div class="ss">
+        <img src="{% static 'img/supra.jpg' %}" alt="" />
+        <p>
+          Supra 1998 года. <br /> Цена : 11000,7$
+        </p>
+      </div>
+      <div class="sss">
+        <img src="{% static 'img/camaro.jpg' %}" alt="" />
+        <p>
+          Camaro 2022 года. <br /> Цена : 25000,4$
+        </p>
+      </div>
+      <div class="ssss">
+        <img src="{% static 'img/Tesla.jpg' %}" alt="" />
+        <p>
+          Tesla 2023 года. <br /> Цена : 34000,0$
+        </p>
+      </div>
+      <div class="ssss">
+        <img src="{% static 'img/mustang.jpg' %}" alt="" />
+        <p>
+          Mustang 2022 года. <br /> Цена : 20000,1$
+        </p>
+      </div>
+    </div>
+  </div>
+  <br />
 {% endblock %}
 
 {% block scripts %}
-<scripts src="{% static 'js/main.js' %}">
-</scripts>
-{% endblock scripts %}
+  <scripts src="{% static 'js/main.js' %}"></scripts>
+{% endblock %}

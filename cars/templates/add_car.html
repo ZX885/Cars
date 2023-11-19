@@ -8,19 +8,18 @@
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/main.css' %}">
 {% endblock css %}
-
-
-
 {% block style %}
-{% endblock %}
-
-{% block link %}
+  <style>
+    body{
+      background-color: darkgray;
+    }
+  </style>
 {% endblock %}
 
 {% block content %}
 <h1 class="text-center">Add new car</h1>
 <div class="features">
-        <div class="container">
+        <div class="contain2">
             {% include "form_snippets.html" with form=form %}
         </div>
     </div>

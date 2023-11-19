@@ -1,0 +1,15 @@
+form{
+    display: flex;
+
+}.gg{
+    max-width: 400px;
+}
+.features{
+    display: flex;
+    color: #000000;
+    text-align: center;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -54,6 +54,12 @@ class Cars(models.Model):
             output_size = (600, 600)
             img.thumbnail(output_size)
             img.save(self.image.path)
+    class Meta:
+        indexes = [
+            models.Index(fields=['is_available', 'price']),
+        ]
+        permissions = [('can_change_car', 'Can change car')]
+        verbose_name_plural = "Cars"
 
     def delete(self, *args, **kwargs):
         image_url = self.image.url

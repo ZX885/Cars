@@ -15,7 +15,13 @@
 {% block content%}
     <div class="features">
         <h1> Cars</h1>
-    </div>
+        {% comment %} <div class="dd"><input class=" search" type="search" placeholder="🔍 Search">
+        </div> {% endcomment %}
+        <form class="a" action="" method="get">
+          <input name='s' placeholder="Поиск..." type="search">
+          <button type="submit">Поиск</button>
+        </form>
+      </div>
     <div class="features">
         <div class="container">
 
@@ -25,7 +31,7 @@
               <div class="car">
                 <div class="car-header">
                   {% comment %}to filter created we can use | date:'d-m-Y' or | timesince or | timeuntil{% endcomment %}
-                  <small class="text">Создано: {{ cars.created|date:'d-m-Y' }}</small>
+                  <small class="text">Создано: {{ car.created|date:'d-m-Y' }}</small>
                   <p class="car-cost">$ {{ cars.price }}</p>
                 </div>
                 <hr />
@@ -39,7 +45,7 @@
                     <p>{{ cars.description }}</p>
                   </div>
                 </a>
-                  <div class="car-footer">
+                  <div class="card-footer">
                     <hr />
                     {% if user.username == 'zarux' %} 
                     <a href="{% url 'delete_car' car.id %}" 

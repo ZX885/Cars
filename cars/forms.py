@@ -13,7 +13,7 @@ type_choices = (
 )
 
 class CarsForm(forms.ModelForm):
-    name = forms.CharField(max_length=255, label="Car title",
+    name = forms.CharField(max_length=255, label="Car name",
                             help_text="How your car will be called")
     type = forms.CharField(max_length=255, label="Type", help_text="Enter main type of your car",
                             widget=forms.Select(choices=type_choices))

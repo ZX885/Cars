@@ -6,9 +6,9 @@
     <a href="{% url "cars_view" %}"><li><i>🚗</i>Машины</li></a>
     {% if user.username == 'zarux' %}
     <a href="{% url "add_car" %}"><li><i>➕</i>Добавить машинов</li></a>
-    {% else %}
-    <a href="{% url "purchase" %}"><li><i>🛒</i>Корзинка</li></a>
+
     {% endif %}
+    <a href="{% url "purchase" %}"><li><i>🛒</i>Корзинка</li></a>
     {% if user.is_authenticated %}
         {% comment %} <a href="{% url "profile" %}"><li><i>👤</i>Профиль</li></a> {% endcomment %}
         <a href="{% url 'logout' %}" data-bs-toggle="tooltip" data-bs-placement="top" title="Logout">

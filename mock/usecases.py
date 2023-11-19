@@ -3,7 +3,7 @@ from cars.models import Cars
 
 WISH_LIST = 'wish-list'
 VIEWED_CARS = 'viewed-cars'
-CAR_IDS = "cars_ids"
+CAR_IDS = "car_id"
 
 
 class Session:
